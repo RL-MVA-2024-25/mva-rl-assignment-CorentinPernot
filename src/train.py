@@ -15,7 +15,7 @@ import pickle
 from copy import deepcopy
     
 
-env = TimeLimit(env=HIVPatient(domain_randomization=False),
+env = TimeLimit(env=HIVPatient(domain_randomization=False), #False
                 max_episode_steps=200)  
 
 # env = TimeLimit(env=FastHIVPatient(domain_randomization=False), #False
@@ -50,7 +50,7 @@ class RandomForestFQI():
         #     max_episode_steps=200
         # )
         self.env = TimeLimit(
-            env=HIVPatient(domain_randomization=False),
+            env=HIVPatient(domain_randomization=True), # False
             max_episode_steps=200
         )
         self.states = gym.spaces.Discrete(4)
@@ -333,7 +333,7 @@ class ProjectAgent:
         #     max_episode_steps=200
         # )
         self.env = TimeLimit(
-            env=HIVPatient(domain_randomization=False),
+            env=HIVPatient(domain_randomization=False), #False
             max_episode_steps=200
         )
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
